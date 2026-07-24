@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>VCC | VVIP Consulting Conference - TREASURE TEAM</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+<!-- Link preview / thumbnail (KakaoTalk, Slack, Facebook, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vcc-treasureteam.vercel.app/mobile.html">
+<meta property="og:title" content="VCC | VVIP Consulting Conference - TREASURE TEAM">
+<meta property="og:description" content="전문직 500여 명이 모이는 단 하루. 2026.09.02(수) 그랜드 하얏트 서울, VVIP 컨설팅 컨퍼런스에 지금 신청하세요.">
+<meta property="og:image" content="https://vcc-treasureteam.vercel.app/og-image-square.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VCC | VVIP Consulting Conference - TREASURE TEAM">
+<meta name="twitter:description" content="전문직 500여 명이 모이는 단 하루. 2026.09.02(수) 그랜드 하얏트 서울">
+<meta name="twitter:image" content="https://vcc-treasureteam.vercel.app/og-image-square.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050608;
+    --bg-soft:#0b0d11;
+    --card:#101318;
+    --line:#22262d;
+    --text:#f5f6f7;
+    --text-dim:#9aa1ab;
+    --text-dimmer:#6b7280;
+    --accent:#5b7fe4;
+    --accent-soft:rgba(91,127,228,0.18);
+    --btn-text:#ffffff;
+  }
+  html[data-theme="light"]{
+    --bg:#ffffff;
+    --bg-soft:#f4f6fa;
+    --card:#ffffff;
+    --line:#e1e5ec;
+    --text:#0d1424;
+    --text-dim:#4a5568;
+    --text-dimmer:#8a94a6;
+    --accent:#16294f;
+    --accent-soft:rgba(22,41,79,0.08);
+    --btn-text:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    overflow-x:hidden;
+    transition:background-color .25s ease, color .25s ease;
+    padding-bottom:84px; /* space for sticky CTA bar */
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px;}
+  section{position:relative;padding:64px 0;}
+  h1,h2,h3,h4,h5{font-weight:900;}
+  .tag{
+    display:inline-block;font-size:12px;letter-spacing:2px;color:var(--accent);
+    font-weight:700;margin-bottom:14px;text-transform:uppercase;
+  }
+  .tag::before{content:"— ";}
+  h2.section-title{
+    font-size:23px;font-weight:900;line-height:1.35;margin-bottom:16px;letter-spacing:-0.3px;
+  }
+  h2.section-title .accent{color:var(--accent);}
+  p.lead{font-size:15.5px;color:var(--text-dim);font-weight:400;}
+  .divider{width:100%;height:1px;background:var(--line);}
+
+  /* HEADER */
+  header{
+    position:fixed;top:0;left:0;width:100%;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    z-index:100;
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:520px;}
+  .brand-text{font-size:13px;font-weight:700;line-height:1.3;}
+  .brand-text em{font-style:normal;display:block;color:var(--accent);font-weight:700;font-size:11.5px;margin-top:2px;}
+  .theme-mini{
+    width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+    display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;flex-shrink:0;
+  }
+
+  /* HERO */
+  #hero{
+    padding-top:96px;
+    background:radial-gradient(ellipse at 50% 0%, var(--accent-soft), transparent 60%), var(--bg);
+    text-align:center;
+  }
+  .hero-logo-wrap{display:flex;justify-content:center;margin-bottom:22px;}
+  .hero-logo-img{width:100%;max-width:190px;height:auto;display:none;}
+  @keyframes slideInLogoM{
+    from{opacity:0;transform:translateX(60px);}
+    to{opacity:1;transform:translateX(0);}
+  }
+  html[data-theme="dark"] .hero-logo-dark, html[data-theme="light"] .hero-logo-light{
+    animation:slideInLogoM .9s cubic-bezier(.16,.84,.44,1) .1s both;
+  }
+  html[data-theme="dark"] .hero-logo-dark{display:block;}
+  html[data-theme="light"] .hero-logo-light{display:block;}
+  .poster-title{display:flex;flex-direction:column;gap:0;line-height:1.08;margin-bottom:16px;}
+  .poster-title .pt-line{font-size:clamp(30px,9.5vw,40px);font-weight:900;letter-spacing:-0.5px;color:var(--text);}
+  .poster-title .pt-accent{color:var(--accent);}
+  .poster-sub{font-size:16px;font-weight:600;color:var(--text-dim);margin:8px 0 16px;}
+  .poster-sub .pt-accent2{color:var(--accent);font-weight:800;}
+  .poster-highlight{
+    display:inline-block;color:var(--accent);font-weight:900;font-size:17px;margin-bottom:32px;
+  }
+  .hero-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  .meta-chip{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg-soft);font-size:14px;
+  }
+  .meta-chip b{color:var(--text);font-weight:700;text-align:right;}
+  .meta-chip .k{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1px;}
+  .hero-cta{display:flex;flex-direction:column;gap:12px;}
+  .btn{
+    display:block;padding:16px 20px;border-radius:100px;font-weight:700;font-size:15px;
+    cursor:pointer;border:none;text-align:center;transition:all .2s ease;
+  }
+  .btn-primary{background:var(--accent);color:var(--btn-text);}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--line);}
+  .hero-note{margin-top:16px;font-size:12.5px;font-weight:400;color:var(--text-dimmer);}
+
+  /* VCC? */
+  #about{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-copy{margin-top:16px;}
+  .about-copy p{margin-bottom:10px;}
+  .about-cards{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .fcard{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px;
+  }
+  .fcard .num{color:var(--accent);font-weight:900;font-size:12px;letter-spacing:1px;margin-bottom:8px;}
+  .fcard h4{font-size:16.5px;font-weight:900;margin-bottom:8px;}
+  .fcard p{font-size:13.5px;font-weight:400;color:var(--text-dim);}
+
+  /* PROFESSIONALS */
+  .prof-badges{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 32px;}
+  .badge{
+    padding:9px 16px;border:1px solid var(--line);border-radius:100px;font-size:13px;font-weight:700;
+    color:var(--text);background:var(--card);
+  }
+  .badge.mint{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+  .theme-grid{display:flex;flex-direction:column;gap:14px;}
+  .theme-card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 20px;
+  }
+  .theme-card .circle{
+    width:40px;height:40px;border-radius:50%;border:2px solid var(--accent);margin-bottom:14px;
+    display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:900;font-size:14px;
+  }
+  .theme-card h4{font-size:17px;font-weight:900;margin-bottom:8px;}
+  .theme-card p{font-size:13px;font-weight:400;color:var(--text-dim);}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line);}
+  .stat{padding:22px 8px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stat .n{font-size:26px;font-weight:900;color:var(--accent);}
+  .stat .l{font-size:11.5px;font-weight:400;color:var(--text-dimmer);margin-top:6px;}
+
+  /* WE'LL PROVE IT */
+  #proof{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .proof-text p{color:var(--text-dim);font-weight:400;font-size:14.5px;margin-bottom:14px;}
+  .proof-text .highlight{color:var(--accent);font-weight:700;}
+  .proof-visual{
+    border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px;margin-top:24px;
+  }
+  .proof-lines{display:flex;flex-direction:column;gap:16px;}
+  .proof-line{display:flex;align-items:center;gap:12px;}
+  .proof-line .chk{
+    width:26px;height:26px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);
+    display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:12.5px;flex-shrink:0;
+  }
+  .proof-line span{font-size:14.5px;font-weight:500;color:var(--text);}
+
+  /* PRE / AFTER */
+  .event-card{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;margin-top:24px;
+  }
+  .event-card .evt-tag{
+    display:inline-block;background:var(--accent);color:var(--btn-text);font-weight:800;
+    font-size:11px;letter-spacing:1.5px;padding:5px 12px;border-radius:100px;margin-bottom:16px;
+  }
+  .event-card h3{font-size:19px;font-weight:900;margin-bottom:6px;}
+  .event-card .sub{color:var(--text-dim);font-weight:400;font-size:13.5px;margin-bottom:22px;}
+  .event-info{display:flex;flex-direction:column;gap:14px;}
+  .info-item{border-top:1px solid var(--line);padding-top:12px;}
+  .info-item .k{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;margin-bottom:5px;}
+  .info-item .v{font-size:14px;font-weight:700;}
+  .soft-note{
+    margin:32px 0;padding:20px 20px;border:1px dashed var(--line);border-radius:14px;
+    color:var(--text-dim);font-weight:400;font-size:13.5px;text-align:center;background:var(--bg-soft);
+  }
+  .benefit-row{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .benefit{
+    background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:20px 22px;text-align:center;
+  }
+  .benefit .bnum{color:var(--accent);font-weight:800;font-size:11px;letter-spacing:1px;margin-bottom:8px;}
+  .benefit h5{font-size:15px;font-weight:900;margin-bottom:6px;}
+  .benefit p{font-size:13px;font-weight:400;color:var(--text-dim);}
+  .change-note{font-size:11.5px;font-weight:400;color:var(--text-dimmer);margin-top:20px;text-align:center;}
+
+  /* LEADER */
+  #leader{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .leader-photo-wrap{
+    position:relative;width:100%;max-width:260px;margin:24px auto 28px;aspect-ratio:933/1400;
+    border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);
+  }
+  .leader-photo-img{width:100%;height:100%;object-fit:cover;display:block;}
+  .leader-photo-fallback{
+    display:none;position:absolute;inset:0;align-items:center;justify-content:center;
+    font-size:56px;font-weight:900;color:var(--accent);background:var(--card);
+  }
+  .leader-col{text-align:center;}
+  .leader-name{font-size:22px;font-weight:900;margin-bottom:6px;}
+  .leader-role{color:var(--accent);font-size:13.5px;font-weight:700;margin-bottom:4px;}
+  .leader-role2{color:var(--text-dim);font-weight:400;font-size:13px;margin-bottom:20px;}
+  .leader-greet{color:var(--text-dim);font-weight:400;font-size:14px;text-align:left;}
+  .leader-greet p{margin-bottom:12px;}
+
+  /* THE END */
+  #end{background:radial-gradient(ellipse at 50% 0%, var(--accent-soft), transparent 55%);}
+  .end-hook{text-align:center;margin-bottom:40px;}
+  .end-hook h2{font-size:22px;font-weight:900;line-height:1.4;margin:0 0 14px;}
+  .end-hook h2 .accent{color:var(--accent);}
+  .end-hook p{color:var(--text-dim);font-weight:400;font-size:14.5px;}
+
+  .form-box{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 22px;
+  }
+  .form-row{margin-bottom:20px;}
+  .form-row label{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:9px;}
+  .form-row label .req{color:var(--accent);margin-left:4px;}
+  .form-row input[type=text], .form-row input[type=tel], .form-row textarea{
+    width:100%;padding:14px 15px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg);color:var(--text);font-size:15px;font-weight:400;font-family:inherit;
+  }
+  .form-row input:focus, .form-row textarea:focus{outline:none;border-color:var(--accent);}
+  .form-row textarea{resize:vertical;min-height:76px;}
+  .choice-group{display:flex;flex-wrap:wrap;gap:8px;}
+  .choice{
+    padding:10px 15px;border:1px solid var(--line);border-radius:100px;font-size:13px;font-weight:500;
+    cursor:pointer;background:var(--bg);color:var(--text-dim);transition:all .15s;
+  }
+  .choice input{display:none;}
+  .choice.active, .choice:has(input:checked){
+    border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:700;
+  }
+  .submit-btn{
+    width:100%;padding:16px;border-radius:12px;background:var(--accent);color:var(--btn-text);
+    font-weight:800;font-size:15px;border:none;cursor:pointer;margin-top:8px;
+  }
+  .form-thanks{display:none;text-align:center;padding:16px;color:var(--accent);font-weight:700;font-size:14.5px;}
+
+  .link-row{display:flex;flex-direction:column;gap:10px;margin-top:32px;}
+  .link-btn{
+    text-align:center;padding:15px;border-radius:14px;border:1px solid var(--line);
+    background:var(--card);font-size:13.5px;font-weight:700;
+  }
+
+  .final-banner{text-align:center;margin-top:56px;padding:44px 0;border-top:1px solid var(--line);}
+  .final-banner p{font-size:19px;font-weight:900;letter-spacing:-0.3px;}
+  .final-banner p .accent{color:var(--accent);}
+  .final-banner small{display:block;margin-top:12px;color:var(--text-dimmer);font-size:12px;font-weight:400;}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 20px;text-align:center;}
+  footer p{font-size:12px;font-weight:500;color:var(--text-dimmer);}
+  footer .sponsors{margin-top:8px;font-size:11px;font-weight:400;}
+  footer .desktop-link{display:inline-block;margin-top:14px;font-size:11.5px;color:var(--text-dimmer);text-decoration:underline;}
+
+  /* STICKY BOTTOM CTA */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:150;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  }
+  .sticky-cta a{
+    display:block;text-align:center;padding:15px;border-radius:100px;
+    background:var(--accent);color:var(--btn-text);font-weight:800;font-size:15px;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s cubic-bezier(.16,.84,.44,1);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand-text">TREASURE TEAM<em>대표 세무사 김철현</em></div>
+    <button class="theme-mini" id="bgToggle" type="button" aria-label="배경 전환">◐</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-logo-wrap">
+      <img src="vcc4-logo-onDark.png" alt="VCC4 logo" class="hero-logo-img hero-logo-dark">
+      <img src="vcc4-logo-onLight.png" alt="VCC4 logo" class="hero-logo-img hero-logo-light">
+    </div>
+    <h1 class="poster-title">
+      <span class="pt-line"><span class="pt-accent">V</span>VIP</span>
+      <span class="pt-line"><span class="pt-accent">C</span>ONSULTING</span>
+      <span class="pt-line"><span class="pt-accent">C</span>ONFERENCE</span>
+    </h1>
+    <p class="poster-sub">전문직을 위한 <span class="pt-accent2">AI・금융・마케팅의 융합</span></p>
+    <div class="poster-highlight">전문직 500여 명이 모이는 단 하루</div>
+
+    <div class="hero-meta">
+      <div class="meta-chip"><span class="k">DATE</span><b>2026. 09. 02 (WED)</b></div>
+      <div class="meta-chip"><span class="k">TIME</span><b>13:00 ~ 20:00</b></div>
+      <div class="meta-chip"><span class="k">PLACE</span><b>그랜드 하얏트 서울 · 그랜드볼룸홀</b></div>
+      <div class="meta-chip"><span class="k">COST</span><b>전액 지원 (식사 제공)</b></div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#apply-form" class="btn btn-primary">지금 신청하기</a>
+      <a href="#about" class="btn btn-outline">VCC 자세히 보기</a>
+    </div>
+    <div class="hero-note">트래저팀을 통해 참가 신청하시면 참가비는 발생하지 않습니다.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VCC? -->
+<section id="about">
+  <div class="wrap">
+    <div class="tag">VCC?</div>
+    <h2 class="section-title">전문직을 위한 <span class="accent">VVIP 컨설팅 컨퍼런스</span></h2>
+
+    <div class="about-copy">
+      <p class="lead">세무사끼리 모이는 자리는 많습니다. 하지만 다양한 전문직과 자연스럽게 어우러질 수 있는 만남의 장은 흔치 않습니다.</p>
+      <p class="lead" style="margin-top:14px;">VCC는 AI, 금융, 마케팅이라는 지금의 변화를 주제로, 서로 다른 분야의 전문직이 한 자리에서 만나 새로운 기회와 해답을 함께 찾는 컨퍼런스입니다.</p>
+    </div>
+
+    <div class="about-cards">
+      <div class="fcard reveal">
+        <div class="num">01</div>
+        <h4>500여 명의 전문직이 한 자리에</h4>
+        <p>세무사, 회계사, 변리사, 법무사, 변호사, 감정평가사 등 다양한 전문직이 함께 모입니다.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="num">02</div>
+        <h4>다른 분야와의 교류</h4>
+        <p>같은 업계 안에서는 볼 수 없던 시각과 네트워크를 만날 수 있는 자리입니다.</p>
+      </div>
+      <div class="fcard reveal">
+        <div class="num">03</div>
+        <h4>참가비 없이, 트래저팀과 함께</h4>
+        <p>저희 트래저팀을 통해 오시면 참가비 부담 없이 참석하실 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROFESSIONALS -->
+<section id="professionals">
+  <div class="wrap">
+    <div class="tag">OUR PROFESSIONALS</div>
+    <h2 class="section-title">전문직이 마주한 <span class="accent">세 가지 현상</span>, 그리고 VCC</h2>
+    <p class="lead">매년 격변하는 AI, 요동치는 금융 시장, 그리고 여전히 부족한 마케팅 — 지금 전문직이 공통으로 마주한 세 가지 현상입니다. VCC는 이 변화 속에서 함께 기회와 해답을 찾는 자리입니다.</p>
+
+    <div class="prof-badges">
+      <span class="badge mint">세무사</span>
+      <span class="badge mint">회계사</span>
+      <span class="badge mint">변리사</span>
+      <span class="badge mint">법무사</span>
+      <span class="badge mint">변호사</span>
+      <span class="badge mint">감정평가사</span>
+      <span class="badge">그 외 다양한 전문직</span>
+    </div>
+
+    <div class="theme-grid">
+      <div class="theme-card reveal">
+        <div class="circle">AI</div>
+        <h4>AI</h4>
+        <p>매년 격변하는 AI 환경 속에서 전문직 업무는 어떻게 달라지고 있는가.</p>
+      </div>
+      <div class="theme-card reveal">
+        <div class="circle">₩</div>
+        <h4>금융</h4>
+        <p>변화하는 금융 시장에서 전문직이 놓치지 말아야 할 흐름과 기회.</p>
+      </div>
+      <div class="theme-card reveal">
+        <div class="circle">M</div>
+        <h4>마케팅</h4>
+        <p>여전히 부재한 전문직 마케팅, 본업 성장을 위한 실질적인 방법.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="n count-up" data-target="500" data-suffix="+">0+</div><div class="l">참석 전문직 인원</div></div>
+      <div class="stat"><div class="n count-up" data-target="6" data-suffix="+">0+</div><div class="l">참여 자격사 분야</div></div>
+      <div class="stat"><div class="n count-up" data-target="7" data-suffix="h">0h</div><div class="l">진행 시간</div></div>
+      <div class="stat"><div class="n count-up" data-target="0" data-suffix="원">0원</div><div class="l">참가 비용</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WE'LL PROVE IT -->
+<section id="proof">
+  <div class="wrap">
+    <div class="tag">WE'LL PROVE IT.</div>
+    <h2 class="section-title">설명하기보다, <span class="accent">보여드리겠습니다</span></h2>
+
+    <div class="proof-text">
+      <p>이미 세무사뿐 아니라 <span class="highlight">재직 중인 직원들까지 클로드(Claude)를 활용해 업무를 자동화</span>하고 있습니다. 더 이상 먼 미래의 이야기가 아니라, 지금 현장에서 일어나고 있는 변화입니다.</p>
+      <p>이 변화를 말로 전달하는 데는 한계가 있습니다. 그래서 VCC는 백 마디 설명 대신, 직접 와서 눈으로 확인할 수 있는 자리를 마련했습니다.</p>
+    </div>
+    <div class="proof-visual reveal">
+      <div class="proof-lines">
+        <div class="proof-line"><span class="chk">✓</span><span>문서 검토 및 자료 정리 자동화</span></div>
+        <div class="proof-line"><span class="chk">✓</span><span>상담 준비 및 리서치 시간 단축</span></div>
+        <div class="proof-line"><span class="chk">✓</span><span>세무사뿐 아니라 직원까지 실제 활용 중</span></div>
+        <div class="proof-line"><span class="chk">✓</span><span>VCC 현장에서 직접 확인 가능</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRE-VCC -->
+<section id="pre-vcc">
+  <div class="wrap">
+    <div class="tag">PRE-VCC</div>
+    <h2 class="section-title">VCC를 더 알차게 즐기기 위한 준비 시간</h2>
+
+    <div class="event-card reveal">
+      <span class="evt-tag">PRE-VCC</span>
+      <h3>26년 법인 컨설팅 트렌드 BEST</h3>
+      <p class="sub">주제 : 사내근로복지기금</p>
+      <div class="event-info">
+        <div class="info-item"><div class="k">DATE</div><div class="v">2026. 08. 05 (WED) · 14:00 ~ 17:00 +@</div></div>
+        <div class="info-item"><div class="k">PLACE</div><div class="v">코엑스</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFTER-VCC -->
+<section id="after-vcc">
+  <div class="wrap">
+    <div class="tag">AFTER-VCC</div>
+    <h2 class="section-title">VCC의 여운을 실전으로 이어가는 시간</h2>
+
+    <div class="event-card reveal">
+      <span class="evt-tag">AFTER-VCC</span>
+      <h3>전문직의 본업성장과 소득증대</h3>
+      <p class="sub">주제 : 금융빌딩과 실제 성공사례</p>
+      <div class="event-info">
+        <div class="info-item"><div class="k">DATE</div><div class="v">2026. 09. 02 (WED) · 10:00 ~ 13:00 +@</div></div>
+        <div class="info-item"><div class="k">PLACE</div><div class="v">IT SQUARE</div></div>
+      </div>
+    </div>
+
+    <div class="soft-note">
+      VCC 무료초대를 위해서는 PRE·AFTER 참석이 함께 이루어집니다.
+      부담으로 느끼지 않으셔도 괜찮습니다 — VCC를 몇 배 더 알차게 즐기기 위한 워밍업이자, 놓치면 아쉬운 두 번의 시간이라고 생각해 주세요.
+    </div>
+
+    <div class="benefit-row">
+      <div class="benefit reveal">
+        <div class="bnum">BENEFIT 01</div>
+        <h5>고경희 세무사 특강 50% 할인</h5>
+        <p>8월 8일(토) &lsquo;비상장주식평가&rsquo; 특강 수강권 50% 할인 제공</p>
+      </div>
+      <div class="benefit reveal">
+        <div class="bnum">BENEFIT 02</div>
+        <h5>VCC 무료 참석권</h5>
+        <p>9월 2일(수) VCC 본 행사 무료 참석권 제공</p>
+      </div>
+    </div>
+
+    <p class="change-note">※ 상기 일정 및 장소는 운영 상황에 따라 변경될 수 있으며, 변경 시 신청자에 한해 개별 안내드립니다.</p>
+  </div>
+</section>
+
+<!-- LEADER -->
+<section id="leader">
+  <div class="wrap">
+    <div class="tag">LEADER</div>
+    <h2 class="section-title">당신을 초대하는 사람</h2>
+
+    <div class="leader-photo-wrap reveal">
+      <img src="kim-chulhyun.jpg" alt="김철현 세무사" class="leader-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="leader-photo-fallback">김</div>
+    </div>
+    <div class="leader-col">
+      <div class="leader-name">김철현 세무사</div>
+      <div class="leader-role">트래저팀 지점장</div>
+      <div class="leader-role2">세무법인 포디움 세무사 · 포스원그룹 WM센터 센터장</div>
+      <div class="leader-greet">
+        <p>매년 빠르게 변화하는 시장 속에서 저 역시 &lsquo;지금 무엇을 준비해야 하는가&rsquo;라는 질문을 놓지 않으려 합니다. VCC는 그 답을 혼자가 아닌, 다양한 분야의 전문가들과 함께 찾아가기 위해 마련한 자리입니다.</p>
+        <p>세무사, 회계사, 변호사, 변리사, 법무사, 감정평가사 — 각자의 영역에서 최선을 다해온 분들이 한 자리에 모여 서로의 시각을 나누다 보면, 혼자서는 보이지 않던 기회들이 보이기 시작합니다.</p>
+        <p>9월 2일, 그 자리에서 직접 뵙고 인사드리겠습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE END -->
+<section id="end">
+  <div class="wrap">
+    <div class="end-hook">
+      <div class="tag">THE END</div>
+      <h2><span class="accent">VCC</span>, 당신을 위한 자리는 이미 마련되어 있습니다</h2>
+      <p>이제 신청만 하면 됩니다.</p>
+    </div>
+
+    <div class="form-box reveal" id="apply-form">
+      <form id="vccForm">
+        <div class="form-row">
+          <label>성함<span class="req">*</span></label>
+          <input type="text" name="name" required placeholder="이름을 입력해 주세요">
+        </div>
+        <div class="form-row">
+          <label>연락처<span class="req">*</span></label>
+          <input type="tel" name="phone" required placeholder="010-0000-0000">
+        </div>
+        <div class="form-row">
+          <label>보유 자격사<span class="req">*</span></label>
+          <div class="choice-group">
+            <label class="choice"><input type="radio" name="license" value="세무사" required>세무사</label>
+            <label class="choice"><input type="radio" name="license" value="회계사">회계사</label>
+            <label class="choice"><input type="radio" name="license" value="변리사">변리사</label>
+            <label class="choice"><input type="radio" name="license" value="법무사">법무사</label>
+            <label class="choice"><input type="radio" name="license" value="변호사">변호사</label>
+            <label class="choice"><input type="radio" name="license" value="감정평가사">감정평가사</label>
+            <label class="choice"><input type="radio" name="license" value="기타 전문직">기타 전문직</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>동반 인원</label>
+          <div class="choice-group">
+            <label class="choice"><input type="radio" name="guests" value="혼자">혼자</label>
+            <label class="choice"><input type="radio" name="guests" value="1명 더">1명 더</label>
+            <label class="choice"><input type="radio" name="guests" value="2명 더">2명 더</label>
+            <label class="choice"><input type="radio" name="guests" value="그 외">그 외</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>그 외 궁금한 점</label>
+          <textarea name="etc" placeholder="궁금하신 내용을 자유롭게 남겨 주세요"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">VCC 참가 신청하기</button>
+      </form>
+      <div class="form-thanks" id="formThanks">신청이 접수되었습니다.<br>담당자가 곧 연락드리겠습니다. 🙏</div>
+    </div>
+
+    <div class="link-row">
+      <a class="link-btn" href="https://www.treasureteam.co.kr/" target="_blank" rel="noopener">트래저팀 홈페이지</a>
+      <a class="link-btn" href="https://www.instagram.com/treasure.bsd/" target="_blank" rel="noopener">인스타그램</a>
+      <a class="link-btn" href="tel:010-9868-6301">010-9868-6301</a>
+    </div>
+
+    <div class="final-banner">
+      <p>변화는 기다려주지 않습니다.<br><span class="accent">9월 2일, VCC에서 뵙겠습니다.</span></p>
+      <small>VVIP CONSULTING CONFERENCE · 2026.09.02 (WED) · Grand Hyatt Seoul</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>김철현 세무사 TREASURE TEAM | PODIUM | FORCE ONE</p>
+  <p class="sponsors">주최 : AIM HIGH · 후원 : RICH DIVINE, 동성회계법인, vane rich</p>
+  <a class="desktop-link" href="index.html">PC 버전으로 보기</a>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#apply-form">지금 신청하기</a>
+</div>
+
+<script>
+  document.getElementById('vccForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formThanks').style.display = 'block';
+  });
+  document.querySelectorAll('.choice input').forEach(function(input){
+    input.addEventListener('change', function(){
+      var name = this.name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(i){
+        i.closest('.choice').classList.remove('active');
+      });
+      this.closest('.choice').classList.add('active');
+    });
+  });
+
+  var htmlEl = document.documentElement;
+  var bgToggleBtn = document.getElementById('bgToggle');
+  bgToggleBtn.addEventListener('click', function(){
+    var cur = htmlEl.getAttribute('data-theme');
+    htmlEl.setAttribute('data-theme', cur === 'light' ? 'dark' : 'light');
+  });
+
+  function animateCountUp(el){
+    var target = parseInt(el.dataset.target, 10) || 0;
+    var suffix = el.dataset.suffix || '';
+    var duration = 1300;
+    var startTime = null;
+    var runId = (el._countRun = (el._countRun || 0) + 1);
+    function step(ts){
+      if(runId !== el._countRun) return;
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      el.textContent = current + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target + suffix; }
+    }
+    requestAnimationFrame(step);
+  }
+  var countUpEls = document.querySelectorAll('.count-up');
+  if('IntersectionObserver' in window){
+    var countObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animateCountUp(entry.target); }
+      });
+    }, {threshold:0.5});
+    countUpEls.forEach(function(el){ countObserver.observe(el); });
+  } else {
+    countUpEls.forEach(function(el){ animateCountUp(el); });
+  }
+
+  (function(){
+    var groups = new Map();
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var key = el.parentElement;
+      if(!groups.has(key)){ groups.set(key, []); }
+      groups.get(key).push(el);
+    });
+    groups.forEach(function(list){
+      list.forEach(function(el, i){ el.style.transitionDelay = (i * 0.1) + 's'; });
+    });
+  })();
+
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); }
+        else { entry.target.classList.remove('is-visible'); }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>
