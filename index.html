@@ -158,17 +158,24 @@
     display:flex;flex-direction:column;justify-content:center;
   }
   .poster-title{display:flex;flex-direction:column;gap:2px;line-height:1.05;margin-bottom:18px;}
-  .poster-title .pt-line{font-size:clamp(28px,4.2vw,54px);font-weight:900;letter-spacing:-1px;color:var(--text);white-space:nowrap;}
+  .poster-title .pt-line{font-size:clamp(33px,4.2vw,59px);font-weight:900;letter-spacing:-1px;color:var(--text);white-space:nowrap;}
   .poster-title .pt-accent{color:var(--accent);}
-  .poster-sub{font-size:15.5px;font-weight:600;color:var(--text-dim);margin:12px 0 22px;}
+  .poster-sub{font-size:20.5px;font-weight:600;color:var(--text-dim);margin:12px 0 22px;}
   .poster-sub .pt-accent2{color:var(--accent);font-weight:800;}
   .poster-highlight{
     display:inline-block;color:var(--accent);
-    font-weight:900;font-size:clamp(15px,2vw,20px);
+    font-weight:900;font-size:clamp(20px,2vw,25px);
     white-space:nowrap;width:fit-content;
   }
   .hero-logo-card{display:flex;align-items:center;justify-content:flex-end;padding:16px 0 16px 16px;}
   .hero-logo-img{width:100%;max-width:440px;height:auto;display:none;}
+  @keyframes slideInLogo{
+    from{opacity:0;transform:translateX(90px);}
+    to{opacity:1;transform:translateX(0);}
+  }
+  html[data-theme="dark"] .hero-logo-dark, html[data-theme="light"] .hero-logo-light{
+    animation:slideInLogo 1s cubic-bezier(.16,.84,.44,1) .15s both;
+  }
   html[data-theme="dark"] .hero-logo-dark{display:block;}
   html[data-theme="light"] .hero-logo-light{display:block;}
   .hero-info-card{
@@ -373,8 +380,15 @@
   footer p{font-size:13px;font-weight:500;color:var(--text-dimmer);}
   footer .sponsors{margin-top:10px;font-size:12px;font-weight:400;}
 
+  /* SCROLL REVEAL */
+  .reveal{
+    opacity:0;transform:translateY(26px);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.16,.84,.44,1);
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
   @media(max-width:860px){
-    .poster-title .pt-line{white-space:normal;font-size:clamp(26px,9vw,40px);}
+    .poster-title .pt-line{white-space:normal;font-size:clamp(31px,9vw,45px);}
     h2.section-title, .end-hook h2{white-space:normal;}
     .hero-top-grid{grid-template-columns:1fr;}
     .hero-logo-card{order:-1;max-width:200px;margin:0 auto;}
@@ -405,8 +419,6 @@
 <!-- WELCOME TO VCC OF TREASURE TEAM -->
 <section id="hero">
   <div class="wrap">
-    <div class="hero-kicker">WELCOME TO VCC OF TREASURE TEAM</div>
-
     <div class="hero-top-grid">
       <div class="hero-title-card">
         <h1 class="poster-title">
@@ -454,17 +466,17 @@
     </div>
 
     <div class="about-cards">
-      <div class="fcard">
+      <div class="fcard reveal">
         <div class="num">01</div>
         <h4>500여 명의 전문직이 한 자리에</h4>
         <p>세무사, 회계사, 변리사, 법무사, 변호사, 감정평가사 등 다양한 전문직이 함께 모입니다.<br></p>
       </div>
-      <div class="fcard">
+      <div class="fcard reveal">
         <div class="num">02</div>
         <h4>다른 분야와의 교류</h4>
         <p>같은 업계 안에서는 볼 수 없던 시각과 네트워크를 만날 수 있는 자리입니다.<br></p>
       </div>
-      <div class="fcard">
+      <div class="fcard reveal">
         <div class="num">03</div>
         <h4>참가비 없이, 트래저팀과 함께</h4>
         <p>저희 트래저팀을 통해 오시면 참가비 부담 없이 참석하실 수 있습니다.<br></p>
@@ -491,17 +503,17 @@
     </div>
 
     <div class="theme-grid">
-      <div class="theme-card">
+      <div class="theme-card reveal">
         <div class="circle">AI</div>
         <h4>AI</h4>
         <p>매년 격변하는 AI 환경 속에서 전문직 업무는 어떻게 달라지고 있는가.</p>
       </div>
-      <div class="theme-card">
+      <div class="theme-card reveal">
         <div class="circle">₩</div>
         <h4>금융</h4>
         <p>변화하는 금융 시장에서 전문직이 놓치지 말아야 할 흐름과 기회.</p>
       </div>
-      <div class="theme-card">
+      <div class="theme-card reveal">
         <div class="circle">M</div>
         <h4>마케팅</h4>
         <p>여전히 부재한 전문직 마케팅, 본업 성장을 위한 실질적인 방법.</p>
@@ -528,7 +540,7 @@
         <p>이미 세무사뿐 아니라 <span class="highlight">재직 중인 직원들까지<br>클로드(Claude)를 활용해 업무를 자동화</span>하고 있습니다.<br>더 이상 먼 미래의 이야기가 아니라, 지금 현장에서 일어나고 있는 변화입니다.</p>
         <p>이 변화를 말로 전달하는 데는 한계가 있습니다.<br>그래서 VCC는 백 마디 설명 대신, 직접 와서 눈으로 확인할 수 있는 자리를 마련했습니다.</p>
       </div>
-      <div class="proof-visual">
+      <div class="proof-visual reveal">
         <div class="proof-lines">
           <div class="proof-line"><span class="chk">✓</span><span>문서 검토 및 자료 정리 자동화</span></div>
           <div class="proof-line"><span class="chk">✓</span><span>상담 준비 및 리서치 시간 단축</span></div>
@@ -548,7 +560,7 @@
     <div class="tag">PRE-VCC</div>
     <h2 class="section-title">VCC를 더 알차게 즐기기 위한 준비 시간</h2>
 
-    <div class="event-card">
+    <div class="event-card reveal">
       <span class="evt-tag">PRE-VCC</span>
       <h3>26년 법인 컨설팅 트렌드 BEST</h3>
       <p class="sub">주제 : 사내근로복지기금</p>
@@ -566,7 +578,7 @@
     <div class="tag">AFTER-VCC</div>
     <h2 class="section-title">VCC의 여운을 실전으로 이어가는 시간</h2>
 
-    <div class="event-card">
+    <div class="event-card reveal">
       <span class="evt-tag">AFTER-VCC</span>
       <h3>전문직의 본업성장과 소득증대</h3>
       <p class="sub">주제 : 금융빌딩과 실제 성공사례</p>
@@ -582,12 +594,12 @@
     </div>
 
     <div class="benefit-row">
-      <div class="benefit">
+      <div class="benefit reveal">
         <div class="bnum">BENEFIT 01</div>
         <h5>고경희 세무사 특강 50% 할인</h5>
         <p>8월 8일(토) &lsquo;비상장주식평가&rsquo; 특강 수강권 50% 할인 제공</p>
       </div>
-      <div class="benefit">
+      <div class="benefit reveal">
         <div class="bnum">BENEFIT 02</div>
         <h5>VCC 무료 참석권</h5>
         <p>9월 2일(수) VCC 본 행사 무료 참석권 제공</p>
@@ -605,7 +617,7 @@
     <h2 class="section-title">당신을 초대하는 사람</h2>
 
     <div class="leader-grid">
-      <div class="leader-photo-wrap">
+      <div class="leader-photo-wrap reveal">
         <img src="kim-chulhyun.jpg" alt="김철현 세무사" class="leader-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="leader-photo-fallback">김</div>
       </div>
@@ -632,7 +644,7 @@
       <p>이제 신청만 하면 됩니다.<br></p>
     </div>
 
-    <div class="form-box" id="apply-form">
+    <div class="form-box reveal" id="apply-form">
       <form id="vccForm">
         <div class="form-row">
           <label>성함<span class="req">*</span></label>
@@ -727,7 +739,9 @@
     var suffix = el.dataset.suffix || '';
     var duration = 1300;
     var startTime = null;
+    var runId = (el._countRun = (el._countRun || 0) + 1);
     function step(ts){
+      if(runId !== el._countRun) return; // superseded by a newer replay
       if(!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
@@ -744,13 +758,42 @@
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           animateCountUp(entry.target);
-          countObserver.unobserve(entry.target);
         }
       });
     }, {threshold:0.5});
     countUpEls.forEach(function(el){ countObserver.observe(el); });
   } else {
     countUpEls.forEach(function(el){ animateCountUp(el); });
+  }
+
+  // SCROLL REVEAL (replays every time each element enters/exits view)
+  (function(){
+    var groups = new Map();
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var key = el.parentElement;
+      if(!groups.has(key)){ groups.set(key, []); }
+      groups.get(key).push(el);
+    });
+    groups.forEach(function(list){
+      list.forEach(function(el, i){
+        el.style.transitionDelay = (i * 0.12) + 's';
+      });
+    });
+  })();
+
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, {threshold:0.18});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
   }
 </script>
 
