@@ -13,14 +13,14 @@
 <!-- Link preview / thumbnail (KakaoTalk, Slack, Facebook, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vcc-treasureteam.vercel.app/mobile.html">
-<meta property="og:title" content="2026 VCC - 500명 전문직이 모이는 단 하루">
-<meta property="og:description" content="전문직을 위한 AI・금융・마케팅의 융합">
+<meta property="og:title" content="2026년 9월 2일 VCC, 전문직 500명이 모이는 단 하루">
+<meta property="og:description" content="트래저팀을 통한 무료티켓 받기">
 <meta property="og:image" content="https://vcc-treasureteam.vercel.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="2026 VCC - 500명 전문직이 모이는 단 하루">
-<meta name="twitter:description" content="전문직을 위한 AI・금융・마케팅의 융합">
+<meta name="twitter:title" content="2026년 9월 2일 VCC, 전문직 500명이 모이는 단 하루">
+<meta name="twitter:description" content="트래저팀을 통한 무료티켓 받기">
 <meta name="twitter:image" content="https://vcc-treasureteam.vercel.app/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,9 +143,14 @@
   #about{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .about-copy{margin-top:16px;}
   .about-copy p{margin-bottom:10px;}
-  .about-cards{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .about-cards{
+    display:flex;gap:14px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .about-cards::-webkit-scrollbar{display:none;}
   .fcard{
     background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px;
+    flex:0 0 66%;scroll-snap-align:start;
   }
   .fcard .num{color:var(--accent);font-weight:900;font-size:12px;letter-spacing:1px;margin-bottom:8px;}
   .fcard h4{font-size:15px;font-weight:900;margin-top:12px;text-align:center;}
@@ -185,16 +190,16 @@
     margin:32px 0;padding:20px 20px;border:1px dashed var(--line);border-radius:14px;
     color:var(--text-dim);font-weight:400;font-size:13.5px;text-align:center;background:var(--bg-soft);
   }
-  .benefit-row{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
   .benefit{
-    background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:20px 22px;text-align:center;
+    background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:16px 14px;text-align:center;
   }
-  .benefit .bnum{color:var(--accent);font-weight:800;font-size:11px;letter-spacing:1px;margin-bottom:8px;}
-  .benefit h5{font-size:15px;font-weight:900;margin-bottom:6px;}
-  .benefit p{font-size:13px;font-weight:400;color:var(--text-dim);}
-  .benefit.benefit-featured{padding:26px 22px;background:var(--accent-soft);}
-  .benefit.benefit-featured h5{font-size:17px;}
-  .benefit .media-box{margin-top:16px;}
+  .benefit .bnum{color:var(--accent);font-weight:800;font-size:10.5px;letter-spacing:1px;margin-bottom:6px;}
+  .benefit h5{font-size:13.5px;font-weight:900;margin-bottom:6px;}
+  .benefit p{font-size:11.5px;font-weight:400;color:var(--text-dim);}
+  .benefit.benefit-featured{padding:18px 14px;background:var(--accent-soft);}
+  .benefit.benefit-featured h5{font-size:14.5px;}
+  .benefit .media-box{margin-top:12px;}
   .change-note{font-size:11.5px;font-weight:400;color:var(--text-dimmer);margin-top:20px;text-align:center;}
 
   /* LEADER */
