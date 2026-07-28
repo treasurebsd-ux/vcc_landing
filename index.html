@@ -228,6 +228,10 @@
   .fcard .media-box{width:220px;flex-shrink:0;}
   .fcard h4{font-size:17px;font-weight:900;}
   .fcard p{font-size:14.5px;font-weight:400;color:var(--text-dim);}
+  .fcard.fcard-photo{flex-direction:column;align-items:stretch;text-align:center;padding:0;overflow:hidden;}
+  .fcard.fcard-photo .media-box{width:100%;border-radius:0;border:none;}
+  .fcard.fcard-photo h4{padding:16px 0;}
+  .media-box.ratio-hyatt{aspect-ratio:20/9;}
 
   /* MEDIA PLACEHOLDER (photos/videos/brochures to be added later) */
   .media-box{
@@ -462,8 +466,8 @@
     </div>
 
     <div class="about-cards">
-      <div class="fcard reveal">
-        <div class="media-box ratio-169">
+      <div class="fcard fcard-photo reveal">
+        <div class="media-box ratio-hyatt">
           <img src="grand-hyatt-exterior.jpg" alt="그랜드 하얏트 서울" class="media-img" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden-until-error');">
           <div class="media-fallback hidden-until-error">그랜드 하얏트 서울<br><span>외부 사진 업로드 예정</span></div>
         </div>
