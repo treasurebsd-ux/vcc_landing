@@ -173,15 +173,9 @@
   .media-fallback.hidden-until-error{display:none;}
   .media-fallback span{font-size:11.5px;font-weight:400;color:var(--text-dimmer);}
 
-  /* TEMP: side-by-side video comparison (autoplay vs click-to-play) */
-  .video-compare{display:flex;flex-direction:column;gap:12px;width:100%;}
-  .video-opt{position:relative;border-radius:14px;overflow:hidden;background:#000;}
-  .video-opt video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000;}
-  .video-opt .video-tag{
-    position:absolute;top:10px;left:10px;z-index:2;
-    background:rgba(0,0,0,0.65);color:#fff;font-size:11.5px;font-weight:700;
-    padding:5px 12px;border-radius:100px;
-  }
+  /* YouTube video embed (responsive) */
+  .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
 
   /* PRE / AFTER */
   .event-card{
@@ -361,33 +355,16 @@
         <h4>그랜드 하얏트 서울</h4>
       </div>
       <div class="fcard fcard-photo reveal">
-        <div class="video-compare">
-          <div class="video-opt">
-            <span class="video-tag">자동재생 버전</span>
-            <video class="media-img" autoplay muted loop playsinline>
-              <source src="vcc-3rd-2025.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-opt">
-            <span class="video-tag">클릭 재생 버전</span>
-            <video class="media-img" controls preload="metadata">
-              <source src="vcc-3rd-2025.mp4" type="video/mp4">
-            </video>
-          </div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/FWUSD8FvKWA" title="2025년 3rd VCC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
         <h4>2025년 3rd VCC와 함께</h4>
       </div>
-      <div class="fcard reveal">
-        <div class="media-box ratio-169">
-          <div class="media-fallback">2024년 2nd VCC와 함께<br><span>영상 업로드 예정</span></div>
+      <div class="fcard fcard-photo reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/-lt0dmre2Q4" title="2024년 2nd VCC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
-        <h4>2nd VCC</h4>
-      </div>
-      <div class="fcard reveal">
-        <div class="media-box ratio-169">
-          <div class="media-fallback">2023년 1st VCC와 함께<br><span>영상 업로드 예정</span></div>
-        </div>
-        <h4>1st VCC</h4>
+        <h4>2024년 2nd VCC와 함께</h4>
       </div>
     </div>
   </div>
@@ -420,19 +397,8 @@
         <div class="bnum">BENEFIT 01</div>
         <h5>고경희 세무사 특강 50% 할인</h5>
         <p>8월 8일(토) &lsquo;비상장주식평가&rsquo; 특강 수강권 50% 할인 제공</p>
-        <div class="video-compare">
-          <div class="video-opt">
-            <span class="video-tag">자동재생 버전</span>
-            <video class="media-img" autoplay muted loop playsinline>
-              <source src="goh-lecture-promo.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-opt">
-            <span class="video-tag">클릭 재생 버전</span>
-            <video class="media-img" controls preload="metadata">
-              <source src="goh-lecture-promo.mp4" type="video/mp4">
-            </video>
-          </div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ib-vJ8CDHWk" title="고경희 세무사 특강 홍보영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
       <div class="benefit reveal benefit-featured">
