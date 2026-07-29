@@ -343,6 +343,29 @@
   .end-hook h2 .accent{color:var(--accent);}
   .end-hook p{color:var(--text-dim);font-weight:400;font-size:16px;}
 
+  /* FAQ accordion */
+  .faq-section{max-width:720px;margin:0 auto 56px;}
+  .faq-head{text-align:center;margin-bottom:28px;}
+  .faq-head .tag{display:inline-block;margin:0 auto 14px;}
+  .faq-head h3{font-size:clamp(20px,2.6vw,28px);font-weight:900;color:var(--text);margin-bottom:10px;}
+  .faq-head p{color:var(--text-dim);font-size:14.5px;font-weight:400;}
+  .faq-list{display:flex;flex-direction:column;gap:12px;}
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;font-weight:700;font-size:15px;color:var(--text);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::marker{display:none;content:'';}
+  .faq-q-label{color:var(--accent);font-weight:900;margin-right:8px;}
+  .faq-icon{flex-shrink:0;width:18px;height:18px;position:relative;}
+  .faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--text-dim);border-radius:2px;}
+  .faq-icon::before{width:12px;height:2px;top:8px;left:3px;}
+  .faq-icon::after{width:2px;height:12px;left:8px;top:3px;transition:transform .25s ease, opacity .25s ease;}
+  .faq-item[open] summary{border-bottom:1px solid var(--line);}
+  .faq-item[open] .faq-icon::after{transform:rotate(90deg);opacity:0;}
+  .faq-answer{padding:16px 20px 20px;font-size:14px;color:var(--text-dim);line-height:1.65;white-space:pre-line;}
+
   .form-box{
     max-width:640px;margin:0 auto;
     background:var(--card);border:1px solid var(--line);border-radius:24px;
@@ -602,6 +625,32 @@
     <div class="end-hook">
       <div class="tag">THE END</div>
       <h2>VCC의 자리는 <span class="accent">선착순</span>으로 마감됩니다</h2>
+    </div>
+
+    <div class="faq-section reveal">
+      <div class="faq-head">
+        <div class="tag">VCC FAQ</div>
+        <h3>많이 궁금해 하시는 질문을 모았습니다</h3>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span><span class="faq-q-label">Q.</span>Grand Hyatt Seoul 주차가 가능할까요?</span><span class="faq-icon"></span></summary>
+          <div class="faq-answer">VCC 참석자의 경우 무료 주차가 가능합니다.
+단, 주차 공간이 다소 협소하므로 가능하시다면 대중교통 이용을 권장드립니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span><span class="faq-q-label">Q.</span>회계사나 세무사처럼 전문직만 참석이 가능한가요?</span><span class="faq-icon"></span></summary>
+          <div class="faq-answer">네 맞습니다. VCC는 개업 전문직을 대상으로 하는 행사입니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span><span class="faq-q-label">Q.</span>주로 어떤 내용들로 진행되는지 궁금합니다.</span><span class="faq-icon"></span></summary>
+          <div class="faq-answer">전문직의 미래를 재편할 명확한 방향성과 적시적 실행 전략, 그리고 비즈니스의 성장을 가속할 AI 모듈과 최고 수준의 인사이트까지, 대한민국 부의 트래픽 최전선에서 시장을 주도할 새로운 성공 방정식과 비즈니스 돌파구를 제시해드립니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span><span class="faq-q-label">Q.</span>지방에 거주하고 있는데 온라인으로 참석이 가능할까요?</span><span class="faq-icon"></span></summary>
+          <div class="faq-answer">아쉽지만 오프라인으로만 진행되는 점 양해 부탁드립니다.</div>
+        </details>
+      </div>
     </div>
 
     <div class="form-box reveal" id="apply-form">
