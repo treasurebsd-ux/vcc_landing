@@ -374,6 +374,7 @@
   .form-row{margin-bottom:22px;}
   .form-row label{display:block;font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:10px;}
   .form-row label .req{color:var(--accent);margin-left:4px;}
+  .form-row label .opt{color:var(--text-dimmer);font-weight:400;margin-left:6px;font-size:12.5px;}
   .form-row input[type=text], .form-row input[type=tel], .form-row textarea{
     width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);
     background:var(--bg);color:var(--text);font-size:14.5px;font-weight:400;font-family:inherit;
@@ -674,6 +675,10 @@
             <label class="choice"><input type="radio" name="license" value="감정평가사">감정평가사</label>
             <label class="choice"><input type="radio" name="license" value="기타 전문직">기타 전문직</label>
           </div>
+        </div>
+        <div class="form-row">
+          <label>초대해주신 분<span class="opt">(선택)</span></label>
+          <input type="text" name="referrer" placeholder="누군가를 통해 초대받으셨다면 그분의 성함을 적어주세요">
         </div>
         <div class="form-row">
           <label>그 외 궁금한 점</label>
