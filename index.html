@@ -213,6 +213,13 @@
   .hero-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
   .hero-cta .btn-primary{padding:16px 34px;font-size:15px;}
 
+  .hero-hook{
+    margin-top:44px;padding:34px 36px;border:1px solid var(--line);border-radius:16px;
+    background:var(--bg-soft);
+  }
+  .hero-hook p{font-size:16px;line-height:1.85;color:var(--text-dim);font-weight:500;}
+  .hero-hook p+p{margin-top:14px;}
+
   /* VCC? */
   #about{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .about-copy{margin-top:20px;}
@@ -432,6 +439,18 @@
   }
   .reveal.is-visible{opacity:1;transform:translateY(0);}
 
+  /* reveal variants - different content, different motion */
+  .reveal-left{transform:translateX(-42px);}
+  .reveal-left.is-visible{transform:translateX(0);}
+  .reveal-right{transform:translateX(42px);}
+  .reveal-right.is-visible{transform:translateX(0);}
+  .reveal-scale{transform:translateY(20px) scale(.92);}
+  .reveal-scale.is-visible{transform:translateY(0) scale(1);}
+  .reveal-fade{transform:none;transition:opacity .9s ease;}
+  .reveal-fade.is-visible{transform:none;}
+  .reveal-blur{transform:translateY(16px);filter:blur(10px);transition:opacity .9s ease, transform .9s cubic-bezier(.16,.84,.44,1), filter .9s ease;}
+  .reveal-blur.is-visible{transform:translateY(0);filter:blur(0);}
+
   @media(max-width:860px){
     .poster-title .pt-line{white-space:normal;font-size:clamp(31px,9vw,45px);}
     h2.section-title, .end-hook h2{white-space:normal;}
@@ -498,6 +517,12 @@
         <a href="#about" class="btn btn-outline">VCC 자세히 보기</a>
       </div>
     </div>
+
+    <div class="hero-hook reveal reveal-blur">
+      <p>이번 VCC는 단순한 세미나가 아닙니다.</p>
+      <p>혼자 성장하는 사람과<br>함께 성장하는 사람의 차이를 직접 확인하는 자리입니다.</p>
+      <p>평소 만나기 어려웠던 세무사·회계사·노무사들과 연결되고<br>앞으로 함께할 수 있는 사람을 만나는 자리.</p>
+    </div>
   </div>
 </section>
 
@@ -514,26 +539,26 @@
     </div>
 
     <div class="about-cards">
-      <div class="fcard fcard-photo reveal">
+      <div class="fcard fcard-photo reveal reveal-scale">
         <div class="media-box ratio-hyatt">
           <img src="grand-hyatt-exterior.jpg" alt="그랜드 하얏트 서울" class="media-img" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden-until-error');">
           <div class="media-fallback hidden-until-error">그랜드 하얏트 서울<br><span>외부 사진 업로드 예정</span></div>
         </div>
         <h4>그랜드 하얏트 서울</h4>
       </div>
-      <div class="fcard fcard-photo reveal">
+      <div class="fcard fcard-photo reveal reveal-scale">
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/FWUSD8FvKWA" title="2025년 3rd VCC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
         <h4>2025년 3rd VCC와 함께</h4>
       </div>
-      <div class="fcard fcard-photo reveal">
+      <div class="fcard fcard-photo reveal reveal-scale">
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/-lt0dmre2Q4" title="2024년 2nd VCC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
         <h4>2024년 2nd VCC와 함께</h4>
       </div>
-      <div class="fcard fcard-photo reveal">
+      <div class="fcard fcard-photo reveal reveal-scale">
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/2UtnZVWjb38" title="2023년 1st VCC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -552,7 +577,7 @@
       <div class="pre-after-col" id="pre-vcc">
         <div class="tag">PRE-VCC</div>
         <h2 class="section-title">VCC를 더 알차게 즐기기 위한 준비 시간</h2>
-        <div class="media-box ratio-after reveal" style="margin-top:20px;" data-modal-img="pre-vcc-brochure-v3.jpg" data-modal-alt="PRE-VCC 브로셔 - 사내근로복지기금 2026 마스터클래스">
+        <div class="media-box ratio-after reveal reveal-left" style="margin-top:20px;" data-modal-img="pre-vcc-brochure-v3.jpg" data-modal-alt="PRE-VCC 브로셔 - 사내근로복지기금 2026 마스터클래스">
           <img src="pre-vcc-brochure-v3.jpg" alt="PRE-VCC 브로셔 - 사내근로복지기금 2026 마스터클래스" class="media-img" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden-until-error');">
           <div class="media-fallback hidden-until-error">PRE-VCC 브로셔<br><span>업로드 예정</span></div>
         </div>
@@ -560,7 +585,7 @@
       <div class="pre-after-col" id="after-vcc">
         <div class="tag">AFTER-VCC</div>
         <h2 class="section-title">VCC의 여운을 실전으로 이어가는 시간</h2>
-        <div class="media-box ratio-after reveal" style="margin-top:20px;" data-modal-img="after-vcc-brochure.jpg" data-modal-alt="AFTER-VCC 브로셔 - LEGACY MONTHLY SEMINAR">
+        <div class="media-box ratio-after reveal reveal-right" style="margin-top:20px;" data-modal-img="after-vcc-brochure.jpg" data-modal-alt="AFTER-VCC 브로셔 - LEGACY MONTHLY SEMINAR">
           <img src="after-vcc-brochure.jpg" alt="AFTER-VCC 브로셔 - LEGACY MONTHLY SEMINAR" class="media-img" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden-until-error');">
           <div class="media-fallback hidden-until-error">AFTER-VCC 브로셔<br><span>업로드 예정</span></div>
         </div>
@@ -568,7 +593,7 @@
     </div>
 
     <div class="benefit-row">
-      <div class="benefit reveal benefit-featured">
+      <div class="benefit reveal reveal-fade benefit-featured">
         <div class="bnum">BENEFIT 01</div>
         <h5>고경희 세무사 특강 50% 할인</h5>
         <p>8월 8일(토) &lsquo;비상장주식평가&rsquo; 특강 수강권 50% 할인 제공</p>
@@ -576,7 +601,7 @@
           <iframe src="https://www.youtube.com/embed/ib-vJ8CDHWk" title="고경희 세무사 특강 홍보영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
-      <div class="benefit reveal benefit-featured">
+      <div class="benefit reveal reveal-fade benefit-featured">
         <div class="bnum">BENEFIT 02</div>
         <h5>VCC 무료 참석권</h5>
         <p>9월 2일(수) VCC 본 행사 무료 참석권 제공<br>호텔 Dinner 제공</p>
@@ -598,7 +623,7 @@
     <h2 class="section-title">당신을 초대하는 사람</h2>
 
     <div class="leader-grid">
-      <div class="leader-photo-wrap reveal">
+      <div class="leader-photo-wrap reveal reveal-left">
         <img src="kim-chulhyun.jpg" alt="김철현 세무사" class="leader-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="leader-photo-fallback">김</div>
       </div>
@@ -665,7 +690,7 @@
       <div class="form-thanks" id="formThanks">신청이 접수되었습니다.<br>담당자가 곧 연락드리겠습니다. 🙏</div>
     </div>
 
-    <div class="faq-section reveal">
+    <div class="faq-section reveal reveal-fade">
       <div class="faq-head">
         <div class="tag">VCC FAQ</div>
         <h3>많이 궁금해 하시는 질문을 모았습니다</h3>
