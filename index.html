@@ -214,11 +214,19 @@
   .hero-cta .btn-primary{padding:16px 34px;font-size:15px;}
 
   .hero-hook{
-    margin-top:44px;padding:34px 36px;border:1px solid var(--line);border-radius:16px;
-    background:var(--bg-soft);
+    margin-top:44px;padding:52px 48px;border:1px solid var(--line);border-radius:20px;
+    text-align:center;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 0%, var(--accent-soft), transparent 62%), var(--bg-soft);
   }
-  .hero-hook p{font-size:16px;line-height:1.85;color:var(--text-dim);font-weight:500;}
-  .hero-hook p+p{margin-top:14px;}
+  .hero-hook-strong{
+    font-size:clamp(19px,2.5vw,27px);font-weight:800;letter-spacing:-0.3px;
+    color:var(--text);line-height:1.5;
+  }
+  .hero-hook-strong .accent{color:var(--accent);}
+  .hero-hook-sep{width:44px;height:2px;background:var(--accent);opacity:.65;margin:24px auto;border-radius:2px;}
+  .hero-hook-sub{font-size:15.5px;line-height:1.85;color:var(--text-dim);font-weight:500;}
+  .hero-hook-sub strong{color:var(--text);font-weight:700;}
+  .hero-hook-sub+.hero-hook-sub{margin-top:16px;}
 
   /* VCC? */
   #about{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -519,9 +527,10 @@
     </div>
 
     <div class="hero-hook reveal reveal-blur">
-      <p>이번 VCC는 단순한 세미나가 아닙니다.</p>
-      <p>혼자 성장하는 사람과<br>함께 성장하는 사람의 차이를 직접 확인하는 자리입니다.</p>
-      <p>평소 만나기 어려웠던 세무사·회계사·노무사들과 연결되고<br>앞으로 함께할 수 있는 사람을 만나는 자리.</p>
+      <div class="hero-hook-strong">이번 VCC는 단순한 세미나가 <span class="accent">아닙니다</span></div>
+      <div class="hero-hook-sep"></div>
+      <p class="hero-hook-sub">혼자 성장하는 사람과 <strong>함께 성장하는 사람</strong>의<br>차이를 직접 확인하는 자리입니다.</p>
+      <p class="hero-hook-sub">평소 만나기 어려웠던 <strong>세무사·회계사·노무사</strong>들과 연결되고<br>앞으로 함께할 수 있는 사람을 만나는 자리.</p>
     </div>
   </div>
 </section>
