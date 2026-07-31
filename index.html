@@ -285,6 +285,24 @@
   /* YouTube video embed (responsive) */
   .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;}
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+  .video-embed.ratio-hyatt{aspect-ratio:20/9;}
+  .video-native{cursor:pointer;}
+  .video-native video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#000;}
+  .video-native::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.32));pointer-events:none;transition:opacity .3s ease;}
+  .video-native.is-playing::after{opacity:0;}
+  .video-play-btn{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.94);border:none;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .video-play-btn::before{
+    content:'';width:0;height:0;margin-left:5px;
+    border-style:solid;border-width:12px 0 12px 19px;
+    border-color:transparent transparent transparent var(--accent);
+  }
+  .video-native:hover .video-play-btn{transform:translate(-50%,-50%) scale(1.08);}
+  .video-native.is-playing .video-play-btn{opacity:0;pointer-events:none;}
 
   /* PRE / AFTER */
   .event-card{
@@ -549,9 +567,9 @@
 
     <div class="about-cards">
       <div class="fcard fcard-photo reveal reveal-scale">
-        <div class="media-box ratio-hyatt">
-          <img src="grand-hyatt-exterior.jpg" alt="그랜드 하얏트 서울" class="media-img" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden-until-error');">
-          <div class="media-fallback hidden-until-error">그랜드 하얏트 서울<br><span>외부 사진 업로드 예정</span></div>
+        <div class="video-embed video-native ratio-hyatt" data-video-src="grand-hyatt-video.mp4">
+          <video poster="grand-hyatt-video-poster.jpg" playsinline preload="none"></video>
+          <button class="video-play-btn" type="button" aria-label="영상 재생"></button>
         </div>
         <h4>그랜드 하얏트 서울</h4>
       </div>
@@ -830,6 +848,22 @@
     refreshToggleLabel();
   });
   refreshToggleLabel();
+
+  // CLICK-TO-PLAY NATIVE VIDEO
+  document.querySelectorAll('.video-native').forEach(function(box){
+    var video = box.querySelector('video');
+    var btn = box.querySelector('.video-play-btn');
+    function playVideo(){
+      if(!video.getAttribute('src')){ video.setAttribute('src', box.getAttribute('data-video-src')); }
+      video.setAttribute('controls', '');
+      video.play();
+      box.classList.add('is-playing');
+    }
+    box.addEventListener('click', function(e){
+      if(video.hasAttribute('controls')) return; // let native controls handle clicks once playing
+      playVideo();
+    });
+  });
 
   // SCROLL REVEAL (replays every time each element enters/exits view)
   (function(){
