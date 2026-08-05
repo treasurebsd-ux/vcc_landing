@@ -417,6 +417,8 @@
   .form-row input:focus, .form-row textarea:focus{outline:none;border-color:var(--accent);}
   .form-row textarea{resize:vertical;min-height:80px;}
   .choice-group{display:flex;flex-wrap:wrap;gap:10px;}
+  .form-row-sub{display:none;margin-top:10px;}
+  .form-row-sub.is-visible{display:block;}
   .choice{
     padding:10px 18px;border:1px solid var(--line);border-radius:100px;
     font-size:13.5px;font-weight:500;cursor:pointer;background:var(--bg);color:var(--text-dim);
@@ -702,6 +704,9 @@
             <label class="choice"><input type="radio" name="license" value="감정평가사">감정평가사</label>
             <label class="choice"><input type="radio" name="license" value="기타 전문직">기타 전문직</label>
           </div>
+          <div class="form-row form-row-sub" id="licenseEtcRow">
+            <input type="text" name="license_etc" placeholder="보유하신 자격사를 입력해 주세요">
+          </div>
         </div>
         <div class="form-row">
           <label>초대해주신 분<span class="opt">(선택)</span></label>
@@ -831,6 +836,18 @@
         i.closest('.choice').classList.remove('active');
       });
       this.closest('.choice').classList.add('active');
+    });
+  });
+  var licenseEtcRow = document.getElementById('licenseEtcRow');
+  var licenseEtcInput = licenseEtcRow ? licenseEtcRow.querySelector('input[name="license_etc"]') : null;
+  document.querySelectorAll('input[name="license"]').forEach(function(input){
+    input.addEventListener('change', function(){
+      var isEtc = this.value === '기타 전문직';
+      licenseEtcRow.classList.toggle('is-visible', isEtc);
+      if(licenseEtcInput){
+        licenseEtcInput.required = isEtc;
+        if(!isEtc){ licenseEtcInput.value = ''; }
+      }
     });
   });
 
